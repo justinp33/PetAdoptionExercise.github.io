@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  <title>Pets</title>
+</head>
+<body>
+
+  <h1 class="m-2">Pets</h1>
+
+  <div>
+    <div class="w-25 h-25 d-flex flex-row">
+      {% for pet in pets %}
+      <p class="m-2">
+      <img class="img-thumbnail"  display="inline" src="{{pet.photo_url}}" alt="No picture of {{pet.name}}">
+      {% if pet.available %}
+        <a href="/{{pet.id}}">{{pet.name}}</a> <b>is available</b> 
+      {% else %}
+        <a href="/{{pet.id}}">{{pet.name}}</a>
+      {% endif %}
+      </p>
+      {% endfor %}
+    </div>
+    <a class="m-2" href="/add">Add Pet</a>
+  </div>
+
+</body>
+</html>
